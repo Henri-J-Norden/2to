@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2md2"
+version = "0.1.0"
+description = "Markdown to PDF CLI using pandoc (bundled via pypandoc-binary) with style management and caching"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+license = { text = "MIT" }
+keywords = ["markdown", "pdf", "pandoc", "cli", "css", "styles", "pypandoc"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Text Processing :: Markup",
+]
+dependencies = [
+    "pypandoc-binary>=1.11",
+    "xhtml2pdf>=0.2.11",
+]
+
+[project.scripts]
+pdf2md2 = "pdf2md2.cli:main"
+pdf2md2-clear-cache = "pdf2md2.cli:clear_cache_main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf2md2*"]
+
+[tool.setuptools.package-data]
+pdf2md2 = [
+  "styles/included/*.css",
+  "styles/README.md",
+]
