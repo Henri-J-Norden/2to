@@ -15,3 +15,6 @@ Write the Python package pdf2md2, using uv and setuptools, that:
 - has a CLI arg "-o"/"--output" to override the output path
 - has a CLI arg "--stdout" to write to stdout instead of a file
 - provides a script `pdf2md2-clear-cache` to clear the download cache
+
+
+Remove the powershell script (assume everyone has bash and curl)
