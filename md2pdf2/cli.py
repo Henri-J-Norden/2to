@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 import pypandoc  # provided by pypandoc-binary
 from xhtml2pdf import pisa
 
-PACKAGE_NAME = "pdf2md2"
+PACKAGE_NAME = "md2pdf2"
 DEFAULT_STYLE = "water"
 
 
@@ -97,7 +97,7 @@ def resolve_style(
         if not name.endswith(".css"):
             name = f"{name}.css"
         if no_cache:
-            tmp = Path(tempfile.gettempdir()) / f"pdf2md2-{name}"
+            tmp = Path(tempfile.gettempdir()) / f"md2pdf2-{name}"
             download_url(style, tmp)
             return (read_css(tmp), tmp)
         else:
@@ -222,7 +222,7 @@ def list_styles_command(args: argparse.Namespace) -> int:
 
 def parse_args(argv: Optional[Iterable[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        prog="pdf2md2",
+        prog="md2pdf2",
         description="Convert Markdown to PDF using bundled pandoc and xhtml2pdf, with CSS style management.",
     )
     p.add_argument("input", help="Path to input Markdown file")
@@ -317,7 +317,7 @@ def clear_cache(cache_dir: Optional[Path] = None) -> int:
 
 
 def clear_cache_main(argv: Optional[Iterable[str]] = None) -> int:
-    p = argparse.ArgumentParser(prog="pdf2md2-clear-cache", description="Clear the pdf2md2 style download cache")
+    p = argparse.ArgumentParser(prog="md2pdf2-clear-cache", description="Clear the md2pdf2 style download cache")
     p.add_argument("--cache-dir", help="Override cache directory")
     args = p.parse_args(list(argv) if argv is not None else None)
     cache_dir = Path(args.cache_dir) if args.cache_dir else None

@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pdf2md2"
+name = "md2pdf2"
 version = "0.1.0"
 description = "Markdown to PDF CLI using pandoc (bundled via pypandoc-binary) with style management and caching"
 readme = "README.md"
@@ -24,15 +24,15 @@ dependencies = [
 ]
 
 [project.scripts]
-pdf2md2 = "pdf2md2.cli:main"
-pdf2md2-clear-cache = "pdf2md2.cli:clear_cache_main"
+md2pdf2 = "md2pdf2.cli:main"
+md2pdf2-clear-cache = "md2pdf2.cli:clear_cache_main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pdf2md2*"]
+include = ["md2pdf2*"]
 
 [tool.setuptools.package-data]
-pdf2md2 = [
+md2pdf2 = [
   "styles/included/*.css",
   "styles/README.md",
 ]
