@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md2pdf2"
+version = "0.1.0"
+description = "Markdown to PDF CLI using pandoc (bundled via pypandoc-binary) with style management and caching"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Henri J. Norden" }]
+license = { text = "MIT" }
+keywords = ["markdown", "pdf", "pandoc", "cli", "css", "styles", "pypandoc"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Text Processing :: Markup",
+]
+dependencies = [
+    "from2to2>=0.1.0",
+    "xhtml2pdf>=0.2.11",
+]
+
+[tool.uv.sources]
+from2to2 = { workspace = true }
+
+[project.scripts]
+md2pdf2 = "md2pdf2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["md2pdf2*"]
+

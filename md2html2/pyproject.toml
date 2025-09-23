@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md2html2"
+version = "0.1.0"
+description = "Markdown to HTML CLI using bundled Pandoc (pypandoc-binary) with shared styles"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Henri J. Norden" }]
+license = { text = "MIT" }
+keywords = ["markdown", "html", "pandoc", "cli", "css", "styles"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+
+dependencies = [
+  "from2to2>=0.1.0",
+]
+
+[tool.uv.sources]
+from2to2 = { workspace = true }
+
+[project.scripts]
+md2html2 = "md2html2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["md2html2*"]

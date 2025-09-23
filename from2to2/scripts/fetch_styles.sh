@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Download a wide selection of CSS styles into md2pdf2/styles/included/
+# Download a wide selection of CSS styles into from2to2/styles/included/
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="${SCRIPT_DIR}/.."
-OUT_DIR="${ROOT_DIR}/md2pdf2/styles/included"
+OUT_DIR="${ROOT_DIR}/from2to2/styles/included"
 mkdir -p "${OUT_DIR}"
 
 fetch() {

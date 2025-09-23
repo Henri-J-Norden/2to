@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "from2to2"
+version = "0.1.0"
+description = "Common utilities for 2-to-2 converters (styles, caching, CLI helpers)"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Henri J. Norden" }]
+license = { text = "MIT" }
+keywords = ["cli", "pandoc", "markdown", "styles", "css"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+dependencies = [
+  "pypandoc-binary>=1.11",
+]
+
+[project.scripts]
+from2to2-clear-cache = "from2to2.cli_common:clear_cache_main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["from2to2*"]
+
+[tool.setuptools.package-data]
+from2to2 = [
+  "styles/included/*.css",
+  "styles/README.md",
+]
