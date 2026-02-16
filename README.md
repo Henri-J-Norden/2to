@@ -1,25 +1,29 @@
 # md2pdf2
 
-Minimal, zero-external-deps Markdown → PDF using bundled Pandoc (pypandoc-binary), CSS styles, and caching.
-
-Quick usage with uvx:
+Easy Markdown → PDF conversion, with nice looking defaults, custom style support and zero external dependencies (everything is bundled):
 
 ```bash
-uvx md2pdf2 README.md -s water
+uvx md2pdf2 README.md
 ```
 
+_Result is written to README.pdf_
+
+---
+
+## Additional options
 For more options, run:
 
 ```bash
 uvx md2pdf2 --help
 ```
 
-## Key options
-
 - `-s, --style STYLE` — Style name, local path, or URL. Default: `water`.
+  - There are many bundled stylesheets: `water`, `sakura`, `github`, `latex`, `tufte`, etc.
+  - `--list-styles` — List included and cached styles.
+  - 
 - `-o, --output PATH` — Output PDF path (defaults to input with `.pdf`).
 - `--stdout` — Write PDF to stdout instead of a file.
-- `--list-styles` — List included and cached styles.
+
 - `--no-cache` — For URL styles, download to a temp file instead of caching.
 - `--title`, `--toc`, `--pandoc-arg …` — Pass through to Pandoc. See `--help`.
 
