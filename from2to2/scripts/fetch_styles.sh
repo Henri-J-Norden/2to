@@ -12,7 +12,7 @@ fetch() {
   local url="$1"; shift
   local out="${OUT_DIR}/${name}.css"
   echo "Downloading ${name} -> ${out}"
-  curl -fsSL --retry 3 --retry-delay 2 -o "${out}" "${url}"
+  curl -fsSL --retry 3 --retry-delay 2 -o "${out}" "${url}" || (echo "Failed to download ${name}")
 }
 
 # Minimalist site styles
@@ -36,24 +36,22 @@ fetch picnic "https://unpkg.com/picnic@7.1.0/picnic.min.css"
 fetch pure "https://unpkg.com/purecss@3.0.0/build/pure-min.css"
 fetch tachyons "https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
 fetch spectre "https://unpkg.com/spectre.css/dist/spectre.min.css"
-fetch mini "https://cdn.jsdelivr.net/npm/mini.css@4.0.1/dist/mini-default.min.css"
+fetch mini "https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
 fetch wing "https://unpkg.com/wingcss@0.1.8/dist/wing.min.css"
 fetch sanitize "https://unpkg.com/sanitize.css@13.0.0/sanitize.css"
 fetch siimple "https://unpkg.com/siimple@3.3.1/dist/siimple.min.css"
-fetch turretcss "https://unpkg.com/turretcss@6.1.3/dist/turretcss.min.css"
+fetch turretcss "https://unpkg.com/turretcss/dist/turretcss.min.css"
 fetch papercss "https://unpkg.com/papercss@1.9.2/dist/paper.min.css"
-fetch latex "https://cdn.jsdelivr.net/gh/vincentdoerig/latex-css@v1.7.6/css/latex.min.css"
+fetch latex "https://latex.vercel.app/style.css"
 fetch tufte "https://cdn.jsdelivr.net/gh/edwardtufte/tufte-css/tufte.css"
 fetch github-markdown "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.7.0/github-markdown.min.css"
 
-# Code highlighting themes (optional)
-fetch highlightjs-default "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
-fetch highlightjs-github "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
-fetch highlightjs-monokai-sublime "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css"
-fetch highlightjs-solarized-dark "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/solarized-dark.min.css"
-fetch highlightjs-solarized-light "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/solarized-light.min.css"
-fetch prism-default "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
-fetch prism-okaidia "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
-fetch prism-tomorrow "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+# Code highlighting themes
+#fetch highlightjs "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+#fetch highlightjs-github "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+#fetch highlightjs-monokai-sublime "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css"
+#fetch prism-default "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+#fetch prism-okaidia "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+#fetch prism-tomorrow "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
 
 echo "Done. Downloaded styles into ${OUT_DIR}"
