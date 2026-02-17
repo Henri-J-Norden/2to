@@ -6,9 +6,9 @@ from typing import Iterable, Optional
 
 from xhtml2pdf import pisa
 
-from from2to2 import style_utils as su
-from from2to2 import convert as conv
-from from2to2 import cli_common as cc
+from from2to import style_utils as su
+from from2to import convert as conv
+from from2to import cli_common as cc
 
 
 def link_callback(uri: str, rel: str) -> str:

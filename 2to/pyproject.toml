@@ -3,32 +3,40 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "md2pdf2"
+name = "2to"
 version = "0.1.0"
-description = "Markdown to PDF CLI using pandoc (bundled via pypandoc-binary) with style management and caching"
+description = """
+Common utilities for 2_ converters (styles, caching, CLI helpers):
+- [2pdf](../2pdf)
+- [2html](../2html)
+"""
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [{ name = "Henri J. Norden" }]
 license = { text = "MIT" }
-keywords = ["markdown", "pdf", "pandoc", "cli", "css", "styles", "pypandoc"]
+keywords = ["cli", "pandoc", "markdown", "styles", "css"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Environment :: Console",
-    "Topic :: Text Processing :: Markup",
 ]
 dependencies = [
-    "from2to>=0.1.0",
-    "xhtml2pdf>=0.2.11",
+  "pypandoc-binary>=1.11",
 ]
 
-[tool.uv.sources]
-from2to = { workspace = true }
+[dependency-groups]
+dev = ["aiohttp"]
 
 [project.scripts]
-md2pdf2 = "md2pdf2.cli:main"
+2to-clear-cache = "from2to.cli_common:clear_cache_main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["md2pdf2*"]
+include = ["from2to*"]
+
+[tool.setuptools.package-data]
+from2to = [
+  "styles/included/*.css",
+  "styles/**/*.md",
+]

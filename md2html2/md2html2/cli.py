@@ -3,9 +3,9 @@ import sys
 from pathlib import Path
 from typing import Iterable, Optional
 
-from from2to2 import style_utils as su
-from from2to2 import convert as conv
-from from2to2 import cli_common as cc
+from from2to import style_utils as su
+from from2to import convert as conv
+from from2to import cli_common as cc
 
 
 def compute_output_path(input_md: Path, output: Optional[str]) -> Path:

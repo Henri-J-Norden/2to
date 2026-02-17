@@ -26,11 +26,11 @@ Also simplify the README:
 - README should start with a single sentence description and usage with uvx. More in-depth description and usage should come later (remember this)
 - Do not list the entire fucking CLI help in the readme (tell them to use --help) - only the more important options
 - Add a development section:
-  - editable install locally in a .venv using uv 
+  - editable install locally in a .venv using uv
   - run the style update script
 
 
-Split the md2pdf2 package into a common from2to2 package and a md2pdf2 package and md2html2 packages that use it. Avoid code duplication and remember that there will be more derived conversion packages in the future.
+Split the md2pdf2 package into a common from2to package and a md2pdf2 package and md2html2 packages that use it. Avoid code duplication and remember that there will be more derived conversion packages in the future.
 
 Obvious things that should be in the common package:
 - common CLI arg parsing
@@ -58,7 +58,4 @@ def inject_css(html: str, css_text: str) -> str:
 ```
 Just import the functions and use them directly...
 
-Also make sure the main() of each package is *actually* minimal and avoids code duplication as much as reasonable (with shared common code in from2to2).
-
-
-
+Also make sure the main() of each package is *actually* minimal and avoids code duplication as much as reasonable (with shared common code in from2to).

@@ -19,11 +19,11 @@ classifiers = [
 ]
 
 dependencies = [
-  "from2to2>=0.1.0",
+  "from2to>=0.1.0",
 ]
 
 [tool.uv.sources]
-from2to2 = { workspace = true }
+from2to = { workspace = true }
 
 [project.scripts]
 md2html2 = "md2html2.cli:main"
