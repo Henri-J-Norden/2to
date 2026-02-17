@@ -4,12 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "2to"
-version = "0.2.0"
-description = """
-Common utilities for 2_ converters (styles, caching, CLI helpers):
-- [2pdf](../2pdf)
-- [2html](../2html)
-"""
+version = "0.2.1"
+description = "Common utilities for 2_ converters (styles, caching, CLI helpers)."
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [{ name = "Henri J. Norden" }]
@@ -24,6 +20,9 @@ classifiers = [
 dependencies = [
   "pypandoc-binary>=1.11",
 ]
+
+[project.urls]
+Repository = "https://github.com/Henri-J-Norden/2to"
 
 [dependency-groups]
 dev = ["aiohttp"]

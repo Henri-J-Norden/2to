@@ -4,14 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "2html"
-version = "0.1.0"
-description = """
-    Markdown to HTML converter using pandoc (bundled via pypandoc-binary) with built-in styles.
-
-    ```shell
-    uvx 2html <input.md>
-    ```
-"""
+version = "0.1.1"
+description = "Markdown to HTML converter using pandoc (bundled via pypandoc-binary) with built-in styles."
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [{ name = "Henri J. Norden" }]
@@ -28,6 +22,9 @@ dependencies = [
   "2to",
   "rich-argparse",
 ]
+
+[project.urls]
+Repository = "https://github.com/Henri-J-Norden/2to"
 
 [tool.uv.sources]
 2to = { workspace = true }
