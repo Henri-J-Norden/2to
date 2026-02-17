@@ -8,7 +8,7 @@ from typing import Iterable, Optional, Tuple
 from urllib.parse import urlparse
 
 PACKAGE_NAME = "from2to"
-DEFAULT_STYLE = "water"
+DEFAULT_STYLE = "new"
 
 
 def is_url(text: str) -> bool:

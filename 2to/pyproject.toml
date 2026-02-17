@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "2to"
-version = "0.1.0"
+version = "0.2.0"
 description = """
 Common utilities for 2_ converters (styles, caching, CLI helpers):
 - [2pdf](../2pdf)

@@ -1,4 +1,5 @@
 import argparse
+import os
 from pathlib import Path
 from typing import Iterable, Optional
 
@@ -6,21 +7,34 @@ from . import style_utils as su
 
 
 def add_common_args(p: argparse.ArgumentParser) -> argparse.ArgumentParser:
-    p.add_argument("-s", "--style", default=su.DEFAULT_STYLE, help="CSS style name, path, or URL (default: water)")
-    p.add_argument("--no-cache", action="store_true", help="Do not cache downloaded URL styles; use a temp file")
-    p.add_argument("--list-styles", action="store_true", help="List available included and cached styles and exit")
-    p.add_argument("--title", help="Set document title")
-    p.add_argument("--toc", action="store_true", help="Enable table of contents via pandoc")
-    p.add_argument(
+    p.add_argument("--stdout", action="store_true", help="Write to stdout instead of a file")
+
+    style_group = p.add_argument_group("Style options")
+    style_group.add_argument("-s", "--style", default=None, help=f"CSS style name, path, or URL (default: {su.DEFAULT_STYLE}) \[env: FROM2TO_STYLE={os.environ.get('FROM2TO_STYLE', '')}]")
+    style_group.add_argument("--list-styles", action="store_true", help="List available included and cached styles and exit")
+    style_group.add_argument("--no-cache", action="store_true", help="Do not cache downloaded URL styles; use a temp file")
+    style_group.add_argument("--cache-dir", help="Override cache directory")
+
+    content_group = p.add_argument_group("Content options")
+    content_group.add_argument("--title", help="Set document title")
+    content_group.add_argument("--toc", action="store_true", help="Enable table of contents via pandoc")
+    content_group.add_argument(
         "--pandoc-arg",
         action="append",
         nargs="+",
         default=[],
         help="Extra pandoc arg(s) (repeatable)",
     )
-    p.add_argument("--cache-dir", help="Override cache directory")
-    p.add_argument("--stdout", action="store_true", help="Write to stdout instead of a file")
     return p
+
+
+def post_parse_args(args: argparse.Namespace) -> argparse.Namespace:
+    if args.style is None:
+        if "FROM2TO_STYLE" in os.environ:
+            args.style = os.environ["FROM2TO_STYLE"]
+        else:
+            args.style = su.DEFAULT_STYLE
+    return args
 
 
 def list_styles_command(args: argparse.Namespace) -> int:

@@ -1,6 +1,6 @@
 [tool.uv.workspace]
 members = [
   "2to",
-  "md2pdf2",
-  "md2html2",
+  "2pdf",
+  "2html",
 ]
